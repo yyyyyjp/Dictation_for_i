@@ -1,0 +1,5 @@
+# 统一换行，避免 Windows 机器把 CRLF 提进仓库
+* text=auto eol=lf
+*.zip binary
+*.png binary
+*.jpg binary
