@@ -1,0 +1,66 @@
+{
+  "jianya_name": "剑雅99",
+  "test_name": "Test 1",
+  "test_id": 9901,
+  "parts": [
+    {
+      "paper_id": 99001,
+      "title": "Part 1",
+      "file_url": "https://example.invalid/part1.mp3",
+      "full_audio": "https://example.invalid/full.mp3",
+      "check_interval": 0,
+      "content": [
+        {"order": 1, "en_text": "Hello there.", "cn_text": "你好。", "start_time": 0, "end_time": 1000},
+        {"order": 2, "en_text": "Second line.", "cn_text": "第二句。", "start_time": 1000, "end_time": 2000}
+      ],
+      "content_jingting": [
+        {"content": "Hello there.", "translate": "你好。", "grammar_analysis": {"句型": "简单句"}},
+        {"content": "Second line.", "translate": "第二句。", "grammar_analysis": {"句型": "简单句"}}
+      ],
+      "question": [
+        {
+          "desc": "Questions 1-2 Complete the table below.",
+          "type": 3,
+          "group_id": 21,
+          "title": "",
+          "table": {"content": [
+            ["Place", "Detail"],
+            ["Park", "Open at $91001$"],
+            ["Museum", "The $91002$ is free"]
+          ]},
+          "list": [
+            {"id": 91001, "number": 1, "title": "", "display_answer": "nine"},
+            {"id": 91002, "number": 2, "title": "", "display_answer": "entry"}
+          ]
+        },
+        {
+          "desc": "Questions 3-4 Choose TWO letters, A-E.",
+          "type": 2,
+          "group_id": 22,
+          "title": "Which TWO facilities are mentioned?",
+          "collect_option": {"list": [
+            {"title": "A", "content": "a swimming pool"},
+            {"title": "B", "content": "a gym"},
+            {"title": "C", "content": "a library"}
+          ]},
+          "list": [
+            {"id": 91003, "number": 3, "title": "", "display_answer": "A,B"},
+            {"id": 91004, "number": 4, "title": "", "display_answer": "A,B"}
+          ]
+        }
+      ]
+    }
+  ],
+  "practice_result_history_grouped": {
+    "part1": [
+      {"result": {"id": 8801, "correct_count": 4, "question_count": 4},
+       "name": "第一次", "submitted_at": "2026-01-01 10:00:00",
+       "is_current": true, "part_id": 99001}
+    ]
+  },
+  "blank_answer_word_comparison": {
+    "current_blank_accuracy_rate": 0.75,
+    "target_ielts_listening_score": "7.0",
+    "target_blank_avg_accuracy_rate": 0.79
+  }
+}

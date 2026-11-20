@@ -1,0 +1,66 @@
+{
+  "id": 6601,
+  "user_id": 1,
+  "source": "jianya",
+  "source_name": "剑雅",
+  "dazuowen_paper_id": 501,
+  "xiaozuowen_paper_id": 0,
+  "paper_id": 501,
+  "kind": "dazuowen",
+  "paper_name": "剑雅99_1",
+  "dazuowen_content": "Modern cities face many problems. This essay discusses two of them and suggests solutions.",
+  "dazuowen_word_count": 14,
+  "xiaozuowen_content": "",
+  "xiaozuowen_word_count": 0,
+  "duration": 1800,
+  "total_score": 6,
+  "score": null,
+  "action": "手动提交",
+  "created_at": "2026-01-02 10:00:00",
+  "corrected_at": "2026-01-02 10:02:00",
+  "highlights": [],
+  "notes": [],
+  "result_notes": null,
+  "dazuowen_paper": {
+    "name": "剑雅99_1",
+    "content": "Some people think cities are getting worse. To what extent do you agree?",
+    "content_category": "city_transport_housing",
+    "img_url": "",
+    "img_desc": null
+  },
+  "dazuowen_qwen_score_details": {
+    "task_type": "task_2",
+    "band_score": 6,
+    "raw_band_score": 6,
+    "score_intervention": null,
+    "dimensions": [
+      {"key": "task_performance", "name": "任务回应", "en_name": "TASK RESPONSE", "score": 6,
+       "reason": "回应了题目。",
+       "items": [{"name": "完整回应题目", "score": 6, "reason": "覆盖两个问题。"}]},
+      {"key": "coherence_and_cohesion", "name": "连贯性与衔接", "en_name": "COHERENCE AND COHESION",
+       "score": 6, "reason": "结构清楚。", "items": []},
+      {"key": "lexical_resource", "name": "词汇丰富度", "en_name": "LEXICAL RESOURCE",
+       "score": 6, "reason": "词汇够用。", "items": []},
+      {"key": "grammatical_range", "name": "语法多样性及准确性", "en_name": "GRAMMATICAL RANGE",
+       "score": 6, "reason": "有少量错误。", "items": []}
+    ]
+  },
+  "dazuowen_deepseek_score_details": {
+    "task_type": "task_2",
+    "band_score": 6.5,
+    "raw_band_score": 6.5,
+    "score_intervention": null,
+    "dimensions": [
+      {"key": "task_performance", "name": "任务回应", "score": 6.5, "reason": "", "items": []},
+      {"key": "coherence_and_cohesion", "name": "连贯性与衔接", "score": 6.5, "reason": "", "items": []},
+      {"key": "lexical_resource", "name": "词汇丰富度", "score": 6.5, "reason": "", "items": []},
+      {"key": "grammatical_range", "name": "语法多样性及准确性", "score": 6.5, "reason": "", "items": []}
+    ]
+  },
+  "dazuowen_doubao_score_details": null,
+  "corrections": {"dazuowen": [], "xiaozuowen": [], "dazuowen_done": true, "xiaozuowen_done": false},
+  "sample_essay": {"dazuowen": {"title": "7分范文", "content": "Sample essay text."}},
+  "practice_result_history": [
+    {"result": {"id": 6601}, "name": "第一次", "submitted_at": "2026-01-02 10:00:00", "is_current": true}
+  ]
+}

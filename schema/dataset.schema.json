@@ -1,0 +1,273 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://local/ielts-practice-export/dataset.schema.json",
+  "title": "ielts-practice-export dataset v1",
+  "description": "每一行 JSONL 都应匹配 definitions 中的恰好一种实体。用 oneOf 按必填字段区分。",
+  "definitions": {
+    "state": {
+      "type": "string",
+      "enum": ["correct", "wrong", "blank", "unattempted"],
+      "description": "correct=答对；wrong=答错；blank=交卷未填；unattempted=没做过"
+    },
+    "module": {"type": "string", "enum": ["reading", "listening", "writing"]},
+    "option": {
+      "type": "object",
+      "required": ["key", "text"],
+      "properties": {
+        "key": {"type": "string"},
+        "text": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "question": {
+      "type": "object",
+      "required": ["schema_version", "question_id", "module", "state", "q_number", "question_type"],
+      "properties": {
+        "schema_version": {"const": "1.0"},
+        "question_id": {"type": "string", "pattern": "^(reading|listening):[0-9]+:[0-9]+$"},
+        "attempt_id": {"type": ["string", "null"]},
+        "module": {"enum": ["reading", "listening"]},
+        "book": {"type": ["string", "null"]},
+        "test": {"type": ["string", "null"]},
+        "part": {"type": ["string", "null"]},
+        "part_index": {"type": ["integer", "null"]},
+        "group_id": {"type": "string"},
+        "question_type": {"type": "string"},
+        "question_type_zh": {"type": "string"},
+        "question_type_raw": {"type": ["integer", "null"]},
+        "q_number": {"type": ["number", "null"]},
+        "q_number_raw": {"type": "string"},
+        "stem": {"type": "string"},
+        "stem_source": {"enum": ["title", "collect", "table", "group_title", "instruction", "empty"]},
+        "options": {"type": "array", "items": {"$ref": "#/definitions/option"}},
+        "yours": {"type": ["string", "number", "null"]},
+        "correct_answer": {"type": ["string", "number", "null"]},
+        "accepted_answers": {"type": "array"},
+        "is_correct": {"type": ["boolean", "null"]},
+        "state": {"$ref": "#/definitions/state"},
+        "error_tags": {"type": "array", "items": {"type": "string"}},
+        "error_note": {"type": ["string", "null"]},
+        "note": {"type": "string"},
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "locating": {"type": "array"},
+            "key_locating": {"type": "array"},
+            "central_sentences": {"type": "array"},
+            "answer_sentences": {},
+            "ai": {"type": ["object", "null"]},
+            "ai_analysis": {"type": "string"},
+            "analysis_blocks": {"type": "array"},
+            "option_analysis": {"type": "array"},
+            "start_ms": {"type": ["integer", "null"]},
+            "end_ms": {"type": ["integer", "null"]}
+          },
+          "additionalProperties": true
+        },
+        "extra": {"type": ["object", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "attempt": {
+      "type": "object",
+      "required": ["schema_version", "attempt_id", "module", "total", "correct", "accuracy"],
+      "properties": {
+        "schema_version": {"const": "1.0"},
+        "attempt_id": {"type": "string"},
+        "module": {"enum": ["reading", "listening"]},
+        "book": {"type": ["string", "null"]},
+        "test": {"type": ["string", "null"]},
+        "part": {"type": ["string", "null"]},
+        "part_index": {"type": ["integer", "null"]},
+        "passage_id": {"type": ["string", "null"]},
+        "result_id": {"type": ["integer", "null"]},
+        "user_id": {"type": ["integer", "null"]},
+        "title": {"type": ["string", "null"]},
+        "submitted_at": {"type": ["string", "null"]},
+        "duration_sec": {"type": ["integer", "null"]},
+        "duration_text": {"type": ["string", "null"]},
+        "accuracy": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "accuracy_raw": {"type": ["number", "null"]},
+        "correct": {"type": "integer", "minimum": 0},
+        "wrong": {"type": "integer", "minimum": 0},
+        "blank": {"type": "integer", "minimum": 0},
+        "total": {"type": "integer", "minimum": 0},
+        "answered": {"type": "integer", "minimum": 0},
+        "action": {"type": ["string", "null"]},
+        "question_range": {"type": ["string", "null"]},
+        "question_types": {"type": "array", "items": {"type": "string"}},
+        "topics": {"type": ["array", "null"]},
+        "by_type": {"type": "array"},
+        "marks": {"type": "object"},
+        "vocab_stats": {"type": ["object", "null"]},
+        "history": {"type": "array"}
+      },
+      "additionalProperties": true
+    },
+    "passage": {
+      "type": "object",
+      "required": ["schema_version", "passage_id", "module", "sentences"],
+      "properties": {
+        "schema_version": {"const": "1.0"},
+        "passage_id": {"type": "string", "pattern": "^(reading|listening):[0-9]+$"},
+        "module": {"enum": ["reading", "listening"]},
+        "book": {"type": ["string", "null"]},
+        "test": {"type": ["string", "null"]},
+        "part": {"type": ["string", "null"]},
+        "part_index": {"type": ["integer", "null"]},
+        "title": {"type": ["string", "null"]},
+        "lead_in": {"type": "string"},
+        "paragraph_source": {"enum": ["content", "sentences_only", "transcript", "empty"]},
+        "paragraphs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "text"],
+            "properties": {"label": {"type": "string"}, "text": {"type": "string"}}
+          }
+        },
+        "sentences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["i", "text"],
+            "properties": {
+              "i": {"type": "integer"},
+              "text": {"type": "string"},
+              "translation": {"type": "string"},
+              "paragraph": {"type": "string"},
+              "start_ms": {"type": ["integer", "null"]},
+              "end_ms": {"type": ["integer", "null"]},
+              "grammar": {"type": ["object", "null"]},
+              "grammar_html": {"type": "string"}
+            },
+            "additionalProperties": true
+          }
+        },
+        "word_count": {"type": "integer"},
+        "audio": {
+          "type": ["object", "null"],
+          "properties": {
+            "part_url": {"type": ["string", "null"]},
+            "full_url": {"type": ["string", "null"]}
+          }
+        },
+        "extra": {"type": ["object", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "group": {
+      "type": "object",
+      "required": ["schema_version", "group_id", "module", "instruction"],
+      "properties": {
+        "schema_version": {"const": "1.0"},
+        "group_id": {"type": "string"},
+        "attempt_id": {"type": ["string", "null"]},
+        "module": {"enum": ["reading", "listening"]},
+        "book": {"type": ["string", "null"]},
+        "test": {"type": ["string", "null"]},
+        "part": {"type": ["string", "null"]},
+        "part_index": {"type": ["integer", "null"]},
+        "question_type": {"type": "string"},
+        "question_type_zh": {"type": "string"},
+        "question_type_raw": {"type": ["integer", "null"]},
+        "instruction": {"type": "string"},
+        "title": {"type": "string"},
+        "body": {"type": "string"},
+        "table": {"type": ["object", "null"]},
+        "options": {"type": "array", "items": {"$ref": "#/definitions/option"}},
+        "image_url": {"type": ["string", "null"]},
+        "question_numbers": {"type": "array"}
+      },
+      "additionalProperties": true
+    },
+    "writing": {
+      "type": "object",
+      "required": ["schema_version", "writing_id", "task", "essay", "scoring"],
+      "properties": {
+        "schema_version": {"const": "1.0"},
+        "writing_id": {"type": "string", "pattern": "^writing:[0-9]+$"},
+        "attempt_id": {"type": "string"},
+        "module": {"const": "writing"},
+        "task": {"enum": ["task_1", "task_2"]},
+        "kind": {"enum": ["dazuowen", "xiaozuowen"]},
+        "kind_zh": {"type": "string"},
+        "source": {"type": ["string", "null"]},
+        "book": {"type": ["string", "null"]},
+        "test": {"type": ["string", "null"]},
+        "paper_name": {"type": ["string", "null"]},
+        "paper_id": {"type": ["integer", "null"]},
+        "question": {
+          "type": "object",
+          "properties": {
+            "text": {"type": "string"},
+            "category": {"type": ["string", "null"]},
+            "image_url": {"type": ["string", "null"]},
+            "image_desc": {"type": ["string", "null"]}
+          }
+        },
+        "essay": {
+          "type": "object",
+          "required": ["text", "word_count"],
+          "properties": {
+            "text": {"type": "string"},
+            "word_count": {"type": ["integer", "null"]},
+            "duration_sec": {"type": ["integer", "null"]},
+            "duration_text": {"type": ["string", "null"]},
+            "submitted_at": {"type": ["string", "null"]}
+          }
+        },
+        "scoring": {
+          "type": "object",
+          "properties": {
+            "total_score": {"type": ["number", "null"]},
+            "score": {"type": ["number", "null"]},
+            "corrected_at": {"type": ["string", "null"]},
+            "models": {"type": "object"},
+            "consensus": {"type": ["object", "null"]}
+          },
+          "additionalProperties": true
+        },
+        "corrections": {"type": "array"},
+        "corrections_done": {"type": "boolean"},
+        "sample_essay": {"type": ["object", "null"]},
+        "marks": {"type": "object"},
+        "history": {"type": "array"},
+        "extra": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "catalog": {
+      "type": "object",
+      "required": ["schema_version", "module", "part_id", "done"],
+      "properties": {
+        "schema_version": {"const": "1.0"},
+        "module": {"$ref": "#/definitions/module"},
+        "source": {"type": ["string", "null"]},
+        "book": {"type": ["string", "null"]},
+        "test": {"type": ["string", "null"]},
+        "part": {"type": ["string", "null"]},
+        "part_index": {"type": ["integer", "null"]},
+        "part_id": {"type": ["integer", "null"]},
+        "test_id": {"type": ["integer", "null"]},
+        "done": {"type": "boolean"},
+        "accuracy": {"type": ["number", "null"]},
+        "duration_sec": {"type": ["integer", "null"]},
+        "question_range": {"type": ["string", "null"]},
+        "question_types": {"type": "array"},
+        "topics": {"type": "array"},
+        "total_num": {"type": ["integer", "null"]},
+        "kind": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    }
+  },
+  "oneOf": [
+    {"$ref": "#/definitions/question"},
+    {"$ref": "#/definitions/attempt"},
+    {"$ref": "#/definitions/passage"},
+    {"$ref": "#/definitions/group"},
+    {"$ref": "#/definitions/writing"},
+    {"$ref": "#/definitions/catalog"}
+  ]
+}
