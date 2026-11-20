@@ -1,0 +1,170 @@
+{
+  "name": "ielts-practice-export",
+  "version": "1.0.0",
+  "schema_version": "1.0",
+  "built_at": "2026-11-21T00:45:54+0800",
+  "python": ">=3.8",
+  "dependencies": [],
+  "entrypoints": {
+    "workbuddy": "SKILL.md",
+    "generic": "AGENTS.md",
+    "human": "README.md",
+    "porting": "PORTING.md"
+  },
+  "requires": {
+    "network": [
+      "https://www.idictation.cn"
+    ],
+    "auth": "idictation_session cookie（本人账号）",
+    "disk": "每 100 篇约 10–20 MB（含原文与语法）"
+  },
+  "commands": {
+    "selftest": "python3 tests/selftest.py",
+    "export": "python3 scripts/export.py --out ./ielts-data",
+    "validate": "python3 scripts/validate.py --in ./ielts-data",
+    "install": "python3 bin/install.py"
+  },
+  "file_count": 28,
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 45,
+      "sha256": "029f11d415dee903"
+    },
+    {
+      "path": "adapters/antigravity.md",
+      "bytes": 2281,
+      "sha256": "5d4b2f388d135895"
+    },
+    {
+      "path": "adapters/deepseek-harness.md",
+      "bytes": 3358,
+      "sha256": "820c2d7f9c2b041b"
+    },
+    {
+      "path": "adapters/generic-agent.md",
+      "bytes": 2395,
+      "sha256": "6bb335dddae38cb1"
+    },
+    {
+      "path": "adapters/workbuddy.md",
+      "bytes": 1740,
+      "sha256": "88e62702ffc1c765"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 4068,
+      "sha256": "e227f62ad3718052"
+    },
+    {
+      "path": "assets/analysis-prompt.md",
+      "bytes": 3057,
+      "sha256": "ec2fb775bc0b7c97"
+    },
+    {
+      "path": "bin/install.py",
+      "bytes": 2189,
+      "sha256": "f2ef45df13db70b9"
+    },
+    {
+      "path": "bin/package.py",
+      "bytes": 3722,
+      "sha256": "a8f0dd09b74696ce"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 1551,
+      "sha256": "fe9dffad9691c6d0"
+    },
+    {
+      "path": "legacy/idictation_listening.py",
+      "bytes": 11100,
+      "sha256": "bc8e4c8a09ba29ce"
+    },
+    {
+      "path": "legacy/idictation_writing.py",
+      "bytes": 5734,
+      "sha256": "0a8c7e8096db18ab"
+    },
+    {
+      "path": "legacy/IELTS_idictation_api.py",
+      "bytes": 13770,
+      "sha256": "77842589d65a4e55"
+    },
+    {
+      "path": "legacy/README.md",
+      "bytes": 669,
+      "sha256": "6550c87963425c3b"
+    },
+    {
+      "path": "PORTING.md",
+      "bytes": 9274,
+      "sha256": "2a72eea00f21025a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3033,
+      "sha256": "456a2d8664438854"
+    },
+    {
+      "path": "schema/dataset.schema.json",
+      "bytes": 11429,
+      "sha256": "074761a8f2e1a888"
+    },
+    {
+      "path": "schema/field-dictionary.md",
+      "bytes": 16940,
+      "sha256": "9a3467f43bd5ebe7"
+    },
+    {
+      "path": "scripts/export.py",
+      "bytes": 19293,
+      "sha256": "ab991cd526ddf87b"
+    },
+    {
+      "path": "scripts/idict_client.py",
+      "bytes": 14426,
+      "sha256": "6d558874720cc1d7"
+    },
+    {
+      "path": "scripts/normalize.py",
+      "bytes": 46922,
+      "sha256": "680044252162748c"
+    },
+    {
+      "path": "scripts/summary.py",
+      "bytes": 11470,
+      "sha256": "865f7bf7ce3a46dd"
+    },
+    {
+      "path": "scripts/validate.py",
+      "bytes": 4388,
+      "sha256": "e87499322a362c53"
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 10907,
+      "sha256": "55d75bbb552f3910"
+    },
+    {
+      "path": "tests/fixtures/listening_raw.json",
+      "bytes": 2334,
+      "sha256": "adf2b0823529126f"
+    },
+    {
+      "path": "tests/fixtures/reading_raw.json",
+      "bytes": 2480,
+      "sha256": "d66cdf43902c9aaf"
+    },
+    {
+      "path": "tests/fixtures/writing_raw.json",
+      "bytes": 2756,
+      "sha256": "0e6932464038e684"
+    },
+    {
+      "path": "tests/selftest.py",
+      "bytes": 5658,
+      "sha256": "284904c1195a4c7f"
+    }
+  ]
+}
