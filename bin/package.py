@@ -48,9 +48,12 @@ def walk():
 
 
 def sha256(p: Path) -> str:
+    """文本文件按 LF 归一后取哈希，与 git 入库内容一致（避免 CRLF 造成假不一致）。"""
     h = hashlib.sha256()
     with p.open("rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
+            if p.suffix.lower() not in {".zip", ".png", ".jpg", ".jpeg", ".gif"}:
+                chunk = chunk.replace(b"\r\n", b"\n")
             h.update(chunk)
     return h.hexdigest()
 

@@ -2,7 +2,7 @@
   "name": "ielts-practice-export",
   "version": "1.0.0",
   "schema_version": "1.0",
-  "built_at": "2026-11-21T00:45:54+0800",
+  "built_at": "2026-11-21T01:16:00+0800",
   "python": ">=3.8",
   "dependencies": [],
   "entrypoints": {
@@ -24,8 +24,13 @@
     "validate": "python3 scripts/validate.py --in ./ielts-data",
     "install": "python3 bin/install.py"
   },
-  "file_count": 28,
+  "file_count": 29,
   "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 118,
+      "sha256": "fcb1ebe68f75b8b3"
+    },
     {
       "path": ".gitignore",
       "bytes": 45,
@@ -68,8 +73,8 @@
     },
     {
       "path": "bin/package.py",
-      "bytes": 3722,
-      "sha256": "a8f0dd09b74696ce"
+      "bytes": 3974,
+      "sha256": "6ee591385c4b7c0e"
     },
     {
       "path": "CHANGELOG.md",
@@ -108,13 +113,13 @@
     },
     {
       "path": "schema/dataset.schema.json",
-      "bytes": 11429,
-      "sha256": "074761a8f2e1a888"
+      "bytes": 11156,
+      "sha256": "c3cf5bac8d67a6ac"
     },
     {
       "path": "schema/field-dictionary.md",
-      "bytes": 16940,
-      "sha256": "9a3467f43bd5ebe7"
+      "bytes": 16586,
+      "sha256": "287758e1a9007d2b"
     },
     {
       "path": "scripts/export.py",
@@ -128,13 +133,13 @@
     },
     {
       "path": "scripts/normalize.py",
-      "bytes": 46922,
-      "sha256": "680044252162748c"
+      "bytes": 45870,
+      "sha256": "d20c5bd8dacc2aa9"
     },
     {
       "path": "scripts/summary.py",
-      "bytes": 11470,
-      "sha256": "865f7bf7ce3a46dd"
+      "bytes": 11236,
+      "sha256": "5cba11f3a30b31f3"
     },
     {
       "path": "scripts/validate.py",
